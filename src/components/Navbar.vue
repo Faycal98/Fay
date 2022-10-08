@@ -1,113 +1,58 @@
 <template>
- 
- <v-row>
-  <v-col  sm="12" md="6">
-    
-  <div class="d-flex align-center nav-item pl-4 mb-4">
-    <div class="image-container d-flex">
-      <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+  <div class="overflow-hidden">
+    <v-app-bar color="deep-purple flex items-center w-full" dark>
+      <v-toolbar-title
+        class="lg:pl-4 lg:text-2xl sm:text-xl font-bold tracking-widest"
+        >Title</v-toolbar-title
+      >
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-    </div>
-   
-        <v-avatar color="red"   class="shrink mt-1 hidden-and-down">
-        <span class="white--text text-h5">CJ</span>
-      </v-avatar>
+      <v-spacer></v-spacer>
+
+      <div class="icon px-5">
+        <router-link to="/">
+          <font-awesome-icon
+            class="text-2xl text-white"
+            to="/about"
+            icon="fa-solid fa-house"
+          />
+        </router-link>
       </div>
 
-  </v-col>
-<v-col  sm="12" md="6">
-    <div class="nav-container">
-      <ul class="nav-list">
-        <li>
-          <router-link to="/about">
-            <v-icon large> mdi-home </v-icon>Home
-          </router-link>
-        </li>
-          
-        <li ><v-icon large :to="abo"> mdi-shopping</v-icon>Boutique</li>
-        <li><v-icon large> mdi-message-text </v-icon>Epreuve</li>
-        <li><v-icon large> mdi-arrow-up-bold-box-outline</v-icon>Jeux</li>
-       
-      </ul>
-    
-    </div>
-  </v-col>
- </v-row>
+      <div class="icon px-5">
+        <router-link to="/shop">
+          <font-awesome-icon
+            class="text-xl text-white"
+            icon="fa-solid fa-shop"
+          />
+        </router-link>
+      </div>
 
-
-
-    
-   
-  
-    
-
- 
+      <div class="icon px-5 l">
+        <router-link to="/epreuves">
+          <v-badge color="green" content="6" overlap>
+            <font-awesome-icon
+              class="text-xl text-white"
+              icon="fa-solid fa-file-lines"
+            />
+          </v-badge>
+        </router-link>
+      </div>
+      <div class="icon px-5 text-2xl">
+        <font-awesome-icon icon="fa-solid fa-power-off" />
+      </div>
+    </v-app-bar>
+  </div>
 </template>
 <script>
 export default {
-  data() {
-    return {
-      abo:'/about'
-    }
-  },
+  data: () => ({
+    drawer: false,
+    group: null,
+  }),
 };
 </script>
-<style scoped>
-  .nav{
-    background: rebeccapurple;
-    padding: 0px 10px 10px 10px;
-  }
-
-  li{
-    cursor: pointer;
-  }
-  .nav-item{
-    justify-content: space-between;
-  }
-.nav-list {
-  list-style-type: none;
-  display: flex;
-}
-
-.nav-container{
-  display: flex;
+<style>
+.v-toolbar__content {
   width: 100%;
-  align-items: center;
-  justify-content: space-between;
-}
-ul li{
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-}
-.v-application ul, .v-application ol {
- padding: 0px;
-}
-
-@media only screen and (max-width: 600px) {
-.nav-list li{
-  display: flex;
-  flex-direction: column;
-  font-size: 13px;
-  cursor: pointer;
-}
-.container{
-  display: contents;
-}
 }
 </style>

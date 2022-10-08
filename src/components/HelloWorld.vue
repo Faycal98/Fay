@@ -15,6 +15,7 @@
           Welcome to Vuetify
         </h1>
 
+       <font-awesome-icon icon="fa-solid fa-user-secret" />
         <p class="subheading font-weight-regular">
           For help and collaboration with other Vuetify developers,
           <br>please join our online
