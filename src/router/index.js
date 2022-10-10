@@ -29,9 +29,9 @@ const routes = [
     component: ()=> import("../views/Epreuve.vue")
   },
   {
-    path:'epreuve/:course/:id',
+    path:'/epreuve/:course/:id',
     name:'courseList',
-    component:()=>import("../components/Timeline.vue")
+    component:()=>import("../components/Select.vue")
   }
 ]
 
