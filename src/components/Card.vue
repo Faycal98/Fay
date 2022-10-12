@@ -3,7 +3,7 @@
     <v-card-title class="text-center text-white font-sans"><h1 class="mx-auto">{{course.name}}</h1></v-card-title>
 
     <v-card-actions>
-      <v-spacer></v-spacer>
+      <v-spacer> </v-spacer>
 
       <v-btn icon>
         <v-icon>mdi-heart</v-icon>
