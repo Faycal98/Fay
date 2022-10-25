@@ -1,33 +1,30 @@
 <template>
-  <v-app>
-<Navbar></Navbar>
-    <v-main>
-     <Dropdown></Dropdown>
-      <router-view />
-    </v-main>
-  </v-app>
+  <div>
+    <Default v-if="$store.state.isAuth"></Default>
+    <Guest v-else-if="$route.meta.guestGuard"></Guest>
+    <Auth v-else></Auth>
+  </div>
 </template>
 
 <script>
-import Dropdown from './components/Dropdown.vue';
-import Navbar from './components/Navbar.vue';
+import Default from "./layouts/Default.vue";
+import Auth from "./layouts/Auth.vue";
+import Guest from "./layouts/Guest";
 
 export default {
   name: "App",
-components:{
-    Navbar,
-    Dropdown
- 
-},
+  components: {
+    Default,
+    Auth,
+    Guest,
+  },
   data: () => ({
     //
   }),
 };
 </script>
 <style>
-  .v-toolbar__content{
-
-width: 100%!important;
-
+.v-toolbar__content {
+  width: 100% !important;
 }
 </style>

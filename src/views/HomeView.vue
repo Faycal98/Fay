@@ -1,8 +1,12 @@
 <template>
-  <hello-world />
+  <div class="d">
+    <hello-world />
+  </div>
+
 </template>
 
 <script>
+
   import HelloWorld from '../components/HelloWorld'
 
   export default {
@@ -10,6 +14,7 @@
 
     components: {
       HelloWorld,
+   
     },
   }
 </script>

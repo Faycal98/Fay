@@ -1,7 +1,7 @@
 <template>
   <label class="dropdown">
-    <div class="dd-button">
-      <v-avatar v-if="connected">
+    <div class="dd-button" :class="{ 'ml-1': connected }">
+      <v-avatar v-if="$store.state.isAuth">
         <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
       </v-avatar>
 
@@ -14,13 +14,23 @@
 
     <input type="checkbox" class="dd-input" id="test" />
 
-    <ul class="dd-menu text-xl">
-      <li>Action</li>
-      <li>Another action</li>
-      <li>Something else here</li>
+    <ul class="dd-menu md:text-xl xs:text-xs">
+      <li v-if="!$store.state.isAuth" @click="login">
+        Se connecter
+        <font-awesome-icon class="text-black ml-3" icon="fa-solid fa-sign-in" />
+      </li>
+      <li v-if="$store.state.isAuth">
+        Voir le profile
+        <font-awesome-icon class="text-black ml-3" icon="fa-solid fa-user" />
+      </li>
+      <li>Mes favoris</li>
       <li class="divider"></li>
-      <li>
-        <a href="http://rane.io">Link to Rane.io</a>
+      <li v-if="$store.state.isAuth" @click="logout">
+        Se Deconnecter
+        <font-awesome-icon
+          class="text-black ml-3"
+          icon="fa-solid fa-power-off"
+        />
       </li>
     </ul>
   </label>
@@ -29,8 +39,19 @@
 export default {
   data() {
     return {
-      connected: false,
+      connected: true,
     };
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("logout").then(() => {
+        this.$router.push("/login");
+      });
+    },
+
+    login() {
+      this.$router.push("/login");
+    },
   },
 };
 </script>
