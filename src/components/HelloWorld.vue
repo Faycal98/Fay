@@ -15,9 +15,11 @@
         <div class="like-container">
           <font-awesome-icon
             icon="fa-solid fa-heart"
+            rotation="270"
             class="text-xl"
             :class="{ 'text-red-400': liked }"
             @click="clicked"
+            :beat="g"
           />
         </div>
         <p class="subheading font-weight-regular">
@@ -99,6 +101,8 @@ export default {
         href: "https://github.com/vuetifyjs/awesome-vuetify",
       },
     ],
+
+    g:true,
     importantLinks: [
       {
         text: "Documentation",

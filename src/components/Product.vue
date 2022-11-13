@@ -13,6 +13,7 @@
           class="text-2xl text-gray-500"
           :class="{ 'text-red-500': liked }"
           @click="clicked"
+          :beat="beatStatus"
         />
       </div>
     </div>
@@ -66,6 +67,7 @@ export default {
     return {
       rating: 3,
       liked: false,
+      beatStatus:false
     };
   },
   methods: {
@@ -74,6 +76,12 @@ export default {
     },
     clicked() {
       this.liked = !this.liked;
+      this.beatStatus = !this.beatStatus
+      if(this.beatStatus){
+        setTimeout(() => {
+          this.beatStatus = false
+        }, 2000);
+      }
     },
   },
 };
@@ -151,7 +159,7 @@ a {
 }
 
 .product-details {
-  padding: 30px 17px;
+  padding: 30px 14px;
 }
 
 .buy {

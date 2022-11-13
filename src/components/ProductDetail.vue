@@ -1,8 +1,8 @@
 <template>
-  <v-container class="mt-4">
+  <v-container class="md:mt-4">
     <v-row>
       <v-col
-        class="flex items-center mt-5 justify-center p-5"
+        class="flex items-center md:mt-5 justify-center px-5 md:py-5 py-1"
         md="12"
         cols="12"
       >
@@ -12,7 +12,6 @@
               <font-awesome-icon
                 icon="fa-solid fa-reply"
                 class="text-2xl text-gray-500 mr-3"
-               
               />
               go gack
             </div>
@@ -119,9 +118,11 @@ export default {
       }
       .image {
         padding-top: 0px !important;
+        display: flex;
+        justify-content: center;
         img {
           height: 167px !important;
-          width: 100%;
+          width: 80%;
         }
       }
       .half {

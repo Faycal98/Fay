@@ -2,35 +2,31 @@
   <v-container class="flex">
     <v-row justify="center">
       <v-col cols="12" class="form-container mt-4">
-        <!--   <div class="card-text tw-flex tw-mb-9 tw-justify-center">
-          <v-icon large>$logo</v-icon>
-          <h1 class="tw-font-medium tw-text-2xl tw-pl-3 logo-title">Kaoshi</h1>
-        </div> -->
-        <v-card class="px-8 mb-2 mx-auto card" max-width="520">
+        <v-card class="px-7 mb-2 mx-auto card" max-width="480">
           <v-card-title
-            class="flex justify-center text-2xl mt-3 mb-5 font-bold leading-9 capitalize card-title"
+            class="flex justify-center text-2xl capitalize text-light-blue font-bold leading-9 card-title"
           >
-            Creer un compte
+            Créer un compte
           </v-card-title>
           <v-card-text>
             <form>
               <div class="formField">
-                <label for="email">Nom:</label>
-                <input v-model="email" type="email" id="email" name="email" />
+                <label for="name">Nom:</label>
+                <input v-model="name" type="text" id="name" name="name" />
               </div>
               <div class="formField">
-                <label for="lname">Prenom:</label>
+                <label for="firstName">Prénom:</label>
                 <input
-                  v-model="password"
-                  type="password"
-                  id="lname"
-                  name="lname"
+                  v-model="firstName"
+                  type="text"
+                  id="firstName"
+                  name="fistName"
                 />
               </div>
               <div class="formField">
-                <label for="lname">Mot de passe:</label>
+                <label for="password">Mot de passe:</label>
                 <input
-                  v-model="confirmPassword"
+                  v-model="password"
                   type="password"
                   id="lname"
                   name="lname"
@@ -47,16 +43,15 @@
                 </div>
               </div>
 
-              <SubmitButton
-                @clicked="submit"
-                msg="Valider"
-              ></SubmitButton>
+              <SubmitButton @clicked="submit" msg="Valider"></SubmitButton>
             </form>
           </v-card-text>
         </v-card>
         <p class="text-center text-base">
-          Already have an account?
-          <span class="text-light-green font-semibold">Sign In</span>
+          Déja un compte?
+          <router-link to="/login">
+            <span class="text-light-green font-semibold">Se connecter</span>
+          </router-link>
         </p>
       </v-col>
     </v-row>
@@ -67,9 +62,9 @@ import SubmitButton from "../components/SubmitButton.vue";
 export default {
   data() {
     return {
-      email: "",
+      name: "",
+      firstName: "",
       password: "",
-      confirmPassword: "",
     };
   },
   components: {
@@ -165,11 +160,21 @@ input[type="submit"] {
   font-size: 1.5rem;
 }
 .formField label {
-  font-size: 14px;
-
+  font-size: 18px;
+  display: block;
   margin-bottom: 5px;
   line-height: 22px;
 }
+
+.form-container {
+    padding: 10px 16px;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+
 
 input[type="checkbox"] {
   /* ...existing styles */
@@ -192,32 +197,39 @@ input[type="checkbox"]:checked::before {
 
 @media only screen and (max-width: 600px) {
   .form-container {
-    padding: 10px 30px;
+    padding: 10px 16px;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
+
+
   .validate {
     margin-bottom: 10px !important;
-    padding: 10px 0px!important;
+    padding: 10px 0px !important;
   }
   .formField input {
     padding: 6px;
   }
 
-
   .v-card__title {
-    padding: 11px!important;
-    margin-top: 0px!important;
-}
-  .formField {
-  
-  margin-bottom: 8px!important;
-}
-
-  .card{
-    padding: 0 11px!important;
-    margin-bottom: 9px!important;
+    padding: 11px !important;
+    margin-top: 12px !important;
   }
-  .card-title{
-    margin-bottom: 0px!important;
+  .formField {
+    margin-bottom: 8px !important;
+  }
+  .formField label{
+    font-size: 16px;
+  }
+  .card {
+    padding: 0 20px !important;
+    margin-bottom: 9px !important;
+
+  }
+  .card-title {
+    margin-bottom: 0px !important;
     font-size: 1.4rem;
   }
 }

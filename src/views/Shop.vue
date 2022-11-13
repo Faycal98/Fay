@@ -1,12 +1,31 @@
 <template>
   <v-container class="mt-5">
-    <h1 class="ml-8 text-xl">
-      <font-awesome-icon
-        icon="fa-solid fa-rss"
-        class="text-2xl text-gray-500 font-bold mr-3"
-      />Fil d'actualité
-    </h1>
-    <v-row no-gutters class="mt-'' flex items-center">
+    <v-row no-gutters>
+      <v-col cols="12" sm="6" md="8">
+        <div class="sliders-content mx-auto">
+          <sliders></sliders>
+        </div>
+      </v-col>
+      <v-col cols="12" md="4"  class="text-center add-btn">
+        <v-btn
+          :loading="loading3"
+          :disabled="loading3"
+          color="rgba(6, 95, 70,1)"
+          class="ma-2 white--text btns"
+          large
+          @click="loader = 'loading3'"
+        >
+          Ajouter produit
+          <font-awesome-icon
+            class="text-3xl text-white ml-1"
+            icon="fa-solid fa-circle-plus"
+          />
+          <font-awesome-icon icon="fa-regular fa-circle-plus" />
+        </v-btn>
+      </v-col>
+    </v-row>
+
+    <v-row no-gutters class="flex items-center">
       <v-col
         v-for="product in products"
         :key="product.id"
@@ -22,6 +41,7 @@
 </template>
 <script>
 import Product from "../components/Product.vue";
+import Sliders from "../components/Sliders.vue";
 export default {
   data: () => ({
     products: [
@@ -75,9 +95,11 @@ export default {
         id: 8,
       },
     ],
+    items: ["Foo", "Bar", "Fizz", "Buzz"],
   }),
   components: {
     Product,
+    Sliders,
   },
 };
 </script>
@@ -85,10 +107,28 @@ export default {
 h1 {
   font-weight: 700;
 }
+.btns{
+  position: relative;
+  left:4.3rem;
+}
+.sliders-content {
+  width: 86%;
+}
 @media only screen and (max-width: 600px) {
   .product-card:not(:first-child) {
     width: 100%;
     margin-top: 3rem;
+  }
+
+  .btns{
+  position: static;
+  left:0px;
+}
+  .sliders-content {
+    width: 100%;
+  }
+  .add-btn {
+    margin-top: 2rem;
   }
   .product__title {
     font-size: 19px !important;

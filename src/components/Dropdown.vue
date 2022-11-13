@@ -1,36 +1,35 @@
 <template>
   <label class="dropdown">
-    <div class="dd-button" :class="{ 'ml-1': connected }">
+    <div class="dd-button mb-1" :class="{ 'ml-1': connected }">
       <v-avatar v-if="$store.state.isAuth">
         <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
       </v-avatar>
-
       <font-awesome-icon
         v-else
         class="w-full text-white"
         icon="fa-solid fa-user"
       />
     </div>
-
     <input type="checkbox" class="dd-input" id="test" />
-
     <ul class="dd-menu md:text-xl xs:text-xs">
       <li v-if="!$store.state.isAuth" @click="login">
+        <font-awesome-icon class="text-black mr-1" icon="fa-solid fa-sign-in" />
         Se connecter
-        <font-awesome-icon class="text-black ml-3" icon="fa-solid fa-sign-in" />
       </li>
       <li v-if="$store.state.isAuth">
-        Voir le profile
-        <font-awesome-icon class="text-black ml-3" icon="fa-solid fa-user" />
+        <font-awesome-icon class="text-black mr-1" icon="fa-solid fa-user" />
+        Voir mon profile
       </li>
-      <li>Mes favoris</li>
-      <li class="divider"></li>
+      <li v-if="$store.state.isAuth">
+        <font-awesome-icon icon="fa-solid fa-heart" class="text-black mr-1" />
+        Mes favoris
+      </li>
       <li v-if="$store.state.isAuth" @click="logout">
-        Se Deconnecter
         <font-awesome-icon
-          class="text-black ml-3"
+          class="text-black mr-1"
           icon="fa-solid fa-power-off"
         />
+        Se Déconnecter
       </li>
     </ul>
   </label>
@@ -128,5 +127,11 @@ a:hover {
 .dd-menu li.divider {
   padding: 0;
   border-bottom: 1px solid #cccccc;
+}
+
+@media only screen and (max-width: 600px) {
+  .dd-menu li {
+    font-size: 14px;
+  }
 }
 </style>

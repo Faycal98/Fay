@@ -1,7 +1,9 @@
 <template>
   <v-container>
     <div class="t flex flex-row items-center justify-center">
-      <div class="border-3 border-red-500 border-solid h-1 mr-2 mt-2 bg-red-500 borders"></div>
+      <div
+        class="border-3 border-red-500 border-solid h-1 mr-2 mt-2 bg-red-500 borders"
+      ></div>
       <p class="font-sans text-4xl my-6 text-center">
         Liste des filières
         <font-awesome-icon
@@ -9,7 +11,9 @@
           icon="fa-solid fa-graduation-cap"
         />
       </p>
-      <div class="border-3 border-red-500 border-solid h-1 ml-2 mt-2 bg-red-500 borders"></div>
+      <div
+        class="border-3 border-red-500 border-solid h-1 ml-2 mt-2 bg-red-500 borders"
+      ></div>
     </div>
 
     <v-row>
@@ -20,6 +24,7 @@
         md="4"
       >
         <router-link
+       
           :to="{
             name: 'courseList',
             params: { course: course.name, id: course.id },
@@ -55,15 +60,15 @@ export default {
 };
 </script>
 <style scoped>
-.borders{
+.borders {
   width: 36.33%;
 }
 @media only screen and (max-width: 600px) {
   p {
     font-size: 25px;
   }
-  .borders{
-width: 13%;
+  .borders {
+    width: 19%;
   }
 }
 </style>

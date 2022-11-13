@@ -1,6 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import store from "../store";
+import redirect2 from "../middlewares/redirect2";
+import redirectEp from "../middlewares/redirectEpreuves";
+import indexRoute from "../middlewares/index";
+
+/* import auth from "../middlewares/auth";
+import redirect from "../middlewares/redirect"; */
 import HomeView from "../views/HomeView.vue";
 
 Vue.use(VueRouter);
@@ -13,7 +18,6 @@ const routes = [
       guestGuard: true,
     },
     component: HomeView,
-
   },
   {
     path: "/about",
@@ -42,6 +46,7 @@ const routes = [
     path: "/epreuve/:course/:id",
     name: "courseList",
     component: () => import("../components/Select.vue"),
+    beforeEnter: redirectEp,
   },
   {
     path: "/shop/:product/:id",
@@ -58,12 +63,22 @@ const routes = [
     name: "login",
     path: "/login",
     component: () => import("../views/Login.vue"),
+    beforeEnter: redirect2,
+    /* (to,from,next)=>{
+redirect2(to,from,next)
+    } */
+  },
+
+  {
+    name: "login2",
+    path: "/login2",
+    component: () => import("../views/Login2.vue"),
   },
   {
     name: "create",
     path: "/createAccount",
     component: () => import("../views/CreateAccount.vue"),
-  }
+  },
 ];
 
 const router = new VueRouter({
@@ -71,18 +86,23 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
-router.beforeEach((to, from, next) => {
-  console.log(to.meta.requiresAuth);
-  if (to.meta.requiresAuth) {
-    if (store.state.isAuth) {
-      next();
-      return true;
-    } else {
-      next("/login");
-      return;
-    }
+router.beforeEach(indexRoute);
+
+/* function auth(to, from, next) {
+  if (store.state.isAuth) {
+    next();
+    return true;
+  } else {
+    next("/login");
+    return;
   }
-  //  return true
-  next();
-});
+}
+function index(to, from, next){
+  if (to.meta.requiresAuth) {
+    auth(to, from, next);
+  }else{
+    redirect()
+  } 
+}
+ */
 export default router;

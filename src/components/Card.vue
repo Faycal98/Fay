@@ -1,8 +1,9 @@
 <template>
   <v-card
     :color="course.color"
-    class="text-white card-list lg:w-auto sm:w-36"
+    class="text-white card-list lg:w-auto md:w-full sm:w-36"
     max-height="140"
+    :disabled="!course.active"
   >
     <v-card-title class="text-center text-white font-sans"
       ><h1 class="mx-auto px-3">
