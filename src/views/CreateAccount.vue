@@ -1,8 +1,8 @@
 <template>
-  <v-container class="flex">
-    <v-row justify="center">
+  <v-container class="flex h-screen">
+    <v-row justify="center" class="h-screen">
       <v-col cols="12" class="form-container mt-4">
-        <v-card class="px-7 mb-2 mx-auto card" max-width="480">
+        <v-card class="px-7 mb-2 mx-auto  lg:mt-11 card" max-width="480">
           <v-card-title
             class="flex justify-center text-2xl capitalize text-light-blue font-bold leading-9 card-title"
           >
@@ -72,7 +72,8 @@ export default {
   },
   methods: {
     submit() {
-      this.submit;
+      this.$store.dispatch("login");
+      this.$router.push("/");
     },
   },
 };
@@ -168,8 +169,9 @@ input[type="submit"] {
 
 .form-container {
     padding: 10px 16px;
-    height: 80vh;
+    height: 100vh;
     display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
   }
@@ -195,11 +197,12 @@ input[type="checkbox"]:checked::before {
   transform: scale(1);
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 740px) {
   .form-container {
     padding: 10px 16px;
-    height: 80vh;
+    height: 100vh;
     display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
   }

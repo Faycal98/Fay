@@ -27,7 +27,7 @@
          
      
       </div> -->
-      <div class="icon lg:px-5 md:px-5 sm:px-1">
+      <div class="icon lg:px-5 md:px-5 sm:px-1 text-2xl">
         <router-link to="/shop">
           <v-badge color="red" content="4" overlap>
             <font-awesome-icon
@@ -35,9 +35,15 @@
               icon="fa-solid fa-shop"
             />
           </v-badge>
+          <h2 class="inline lg:ml-1 md:ml-1 font-semibold text-white">
+            Boutique
+          </h2>
         </router-link>
       </div>
-      <div class="icon lg:px-5 md:px-5 sm:px-1" v-if="$store.state.isAuth">
+      <div
+        class="icon lg:px-5 md:px-5 sm:px-1 text-2xl"
+        v-if="$store.state.isAuth"
+      >
         <router-link to="/epreuves">
           <v-badge color="red" content="6" overlap>
             <font-awesome-icon
@@ -45,9 +51,15 @@
               icon="fa-solid fa-file-lines"
             />
           </v-badge>
+          <h2 class="inline lg:ml-1 md:ml-1 font-semibold text-white">
+            Epreuves
+          </h2>
         </router-link>
       </div>
-      <div class="icon lg:px-5 md:px-5 sm:px-1" v-if="$store.state.isAuth">
+      <div
+        class="icon lg:px-5 md:px-5 sm:px-1 text-2xl"
+        v-if="$store.state.isAuth"
+      >
         <router-link to="/panier">
           <v-badge color="red" content="6" overlap>
             <font-awesome-icon
@@ -55,6 +67,9 @@
               icon="fa-solid fa-shopping-cart"
             />
           </v-badge>
+          <h2 class="inline ml-1 font-semibold md:ml-1 text-white">
+            Panier
+          </h2>
         </router-link>
       </div>
       <div class="icon-last lg:pl-3 sm:pl-1 text-2xl overflow-hidden">
@@ -73,15 +88,24 @@ export default {
   components: {
     Dropdown,
   },
+  mounted(){
+   
+    console.log('I am mounted')
+    
+  }
 };
 </script>
 <style scoped>
 .v-toolbar__content {
   width: 100% !important;
 }
+
 @media only screen and (max-width: 769px) {
   .icon {
     padding: 0 10px !important;
+  }
+  .icon h2 {
+    display: none;
   }
   .icon-last {
     display: flex;

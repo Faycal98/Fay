@@ -3,7 +3,7 @@
     <v-row class="mt-7 flex items-center no-gutter justify-center w-full">
       <v-col md="8" cols="12">
         <div class="card-container flex justify-center items-center">
-          <v-card class="w-3/4 lg:p-7 card">
+          <v-card class="w-3/4 lg:p-7 md:p-5 card">
             <v-card-title class="pb-0">
               <h1 class="lg:text-3xl mb-6 text-2xl font-semibold font-sans">
                 {{ $route.params.course }}

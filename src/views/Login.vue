@@ -1,7 +1,7 @@
 <template>
-  <v-container>
-    <v-row justify="center">
-      <v-col cols="12" md="12" class="row-content mt-9">
+  <v-container class="h-sreen">
+    <v-row justify="center" class="h-screen">
+      <v-col cols="12" md="12" class="row-content h-screen">
         <v-card class="px-11 mb-4 mx-auto card" width="480">
           <v-card-title
             class="flex justify-center text-2xl mt-6 mb-5 font-bold text-light-blue leading-9 capitalize card-title"
@@ -162,12 +162,13 @@ input[type="submit"] {
   font-size: 1.5rem;
 }
 
-.row-content{
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
+.row-content {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 .formField label {
   font-size: 18px;
   display: block;
@@ -198,14 +199,16 @@ input[type="checkbox"]:checked::before {
 @media only screen and (max-width: 600px) {
   .row-content {
     margin-top: 0px !important;
+    justify-content: center;
+    height: 100vh !important;
+    align-items: center;
   }
   .card {
     padding: 0 20px !important;
     width: 370px !important;
-    
   }
 
-  .row-content{
+  .row-content {
     height: 80vh;
     display: flex;
     justify-content: center;
@@ -225,7 +228,7 @@ input[type="checkbox"]:checked::before {
     padding: 8px !important;
   }
 
-  .formField label{
+  .formField label {
     font-size: 16px;
   }
 }

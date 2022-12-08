@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main>
+    <v-main class="bg-gray">
       <transition name="fade">
         <router-view />
       </transition>

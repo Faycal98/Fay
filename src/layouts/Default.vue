@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <Navbar></Navbar>
-    <v-main class="relative top-14">
+    <v-main class="relative top-14 main-container">
       <transition name="fade">
-      <router-view />
+        <router-view />
       </transition>
     </v-main>
   </v-app>
@@ -17,13 +17,17 @@ export default {
 };
 </script>
 <style>
-.fade-enter-active,.fade-leave-active{
-  transition: opacity .9s;
-  
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.9s;
 }
-.fade-enter,.fade-leave-to{
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
-  
+}
+
+.main-container {
+  top: 4.5rem !important;
 }
 
 /* .slide-fade-enter-active{

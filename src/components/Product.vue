@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="product-details">
-      <div class="product-name flex items-center mb-6 justify-between">
+      <div class="product-name flex items-center gap-2 mb-6 justify-between">
         <h4>
           <a href="#">{{ productProps.name }}</a>
         </h4>
@@ -67,7 +67,7 @@ export default {
     return {
       rating: 3,
       liked: false,
-      beatStatus:false
+      beatStatus: false,
     };
   },
   methods: {
@@ -76,11 +76,11 @@ export default {
     },
     clicked() {
       this.liked = !this.liked;
-      this.beatStatus = !this.beatStatus
-      if(this.beatStatus){
+      this.beatStatus = !this.beatStatus;
+      if (this.beatStatus) {
         setTimeout(() => {
-          this.beatStatus = false
-        }, 2000);
+          this.beatStatus = false;
+        }, 1900);
       }
     },
   },
@@ -94,7 +94,9 @@ export default {
   margin: 0;
   padding: 0;
 }
-
+.badge {
+  z-index: 20;
+}
 a {
   text-decoration: none;
 }
@@ -104,8 +106,12 @@ a {
   box-shadow: 0 2px 7px #dfdfdf;
   border-radius: 6px;
   background: #fafafa;
+  transition: transform 0.5s;
 }
 
+/* .product-card:hover{
+  transform: scale(1.1);
+} */
 .badge {
   position: absolute;
   left: 0;
@@ -156,6 +162,7 @@ a {
   height: 255px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+
 }
 
 .product-details {
@@ -239,11 +246,16 @@ a {
   color: #fbb72c;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1100px) {
   .product-details {
     padding: 16px 10px;
   }
 
+  .product-card {
+    width: 314px;
+    
+    
+  }
   .product-links {
     padding: 10px;
   }

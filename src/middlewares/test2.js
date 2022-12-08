@@ -1,0 +1,1 @@
+import { nom,k } from "./test1";

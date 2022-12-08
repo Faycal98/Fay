@@ -79,6 +79,24 @@ redirect2(to,from,next)
     path: "/createAccount",
     component: () => import("../views/CreateAccount.vue"),
   },
+  {
+    name:'homePage',
+    path:'/homePage',
+    component:()=> import("../views/HomePage.vue")
+  },
+  {
+    name:'gal',
+    path:'/gal',
+    component:()=>import("../views/Gallery.vue")
+  },
+  {
+    name: "productRegistration",
+    path: "/registration",
+    component: () => import("../views/ProductRegistration.vue"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
 ];
 
 const router = new VueRouter({

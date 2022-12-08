@@ -11,76 +11,76 @@ const store = new Vuex.Store({
         name: "Electronique",
         color: "#FF5722",
         id: 0,
-        active: true
+        active: true,
       },
       {
         name: "Génie Télécoms et TIC",
         color: "#757575",
         id: 1,
-        active: true
+        active: true,
       },
       {
         name: " Informatique Industrielle et Maintenance",
         color: "#FF9800",
         id: 2,
-        active: false
+        active: false,
       },
       {
         name: "Banques Finances et Assurances",
         color: "#4CAF50",
         id: 3,
-        active: true
+        active: true,
       },
       {
         name: "Action Commerciale et Force de Vente",
         color: "#00BCD4",
         id: 4,
-        active: false
+        active: false,
       },
       {
         name: "Droit",
         color: "#673AB7",
         id: 5,
-        active: false
+        active: false,
       },
       {
         name: "Commerce International",
         color: "#3F51B5",
         id: 6,
-        active: true
+        active: true,
       },
       {
         name: " Informatique de Gestion",
         color: "#2196F3",
         id: 7,
-        active: false
+        active: false,
       },
       {
         name: "Audit et controle de Gestion",
         color: "#E040FB",
         id: 8,
-        active: true
+        active: true,
       },
 
       {
         name: "Analyses Biologiques",
         color: "#E040FB",
         id: 9,
-        active: true
+        active: true,
       },
 
       {
         name: "Transport et Logistique",
         color: "#FFEE58",
         id: 10,
-        active: true
+        active: true,
       },
 
       {
         name: " Assurances",
         color: "#FFAB91",
         id: 11,
-        active: true
+        active: true,
       },
     ],
     products: [
@@ -89,18 +89,21 @@ const store = new Vuex.Store({
         img: "S21.jpg",
         price: 400000,
         id: 0,
+        category: "Smartphones",
       },
       {
         name: "Samsung S21",
         img: "1200x-1.jpg",
         price: 300000,
         id: 1,
+        category: "Smartphones",
       },
       {
         name: "nike.jpg",
         img: "nike.jpg",
         price: 30000,
         id: 2,
+        category: "Shoe",
       },
 
       {
@@ -120,6 +123,7 @@ const store = new Vuex.Store({
         img: "p10.jpg",
         price: 400000,
         id: 6,
+        category: "Smartphones",
       },
       {
         name: "SAO",
@@ -155,11 +159,20 @@ const store = new Vuex.Store({
   getters: {
     getAllCourses: (state) => state.courses,
     getCourseByID: (state) => {
-      return function(id) {
-        return state.courses.find(el => el.id == id)
-      }
-    }
-  }
+      return function (id) {
+        return state.courses.find((el) => el.id == id);
+      };
+    },
+    getProductByCategory: (state) => {
+      return function (category) {
+        if (category == "Tous nos produits") {
+          return state.products;
+        } else {
+          return state.products.filter((el) => el.category == category);
+        }
+      };
+    },
+  },
 });
 
 export default store;

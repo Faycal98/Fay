@@ -34,6 +34,7 @@
         </router-link>
       </v-col>
     </v-row>
+    <h3>Contribuer en ajoutant d'autre epreuves</h3>
   </v-container>
 </template>
 <script>
@@ -68,7 +69,7 @@ export default {
     font-size: 25px;
   }
   .borders {
-    width: 19%;
+    width: 14%;
   }
 }
 </style>

@@ -1,73 +1,40 @@
 <template>
-  <v-container class="md:mt-4">
-    <v-row>
-      <v-col
-        class="flex items-center md:mt-5 justify-center px-5 md:py-5 py-1"
-        md="12"
-        cols="12"
-      >
-        <div class="main">
-          <div class="card mb-8">
-            <div class="card__title">
-              <font-awesome-icon
-                icon="fa-solid fa-reply"
-                class="text-2xl text-gray-500 mr-3"
+  <div class="">
+    <ul class="cards">
+      <li>
+        <a href="" class="card">
+          <img
+            src="https://i.imgur.com/oYiTqum.jpg"
+            class="card__image"
+            alt=""
+          />
+          <div class="card__overlay">
+            <div class="card__header">
+              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                <path />
+              </svg>
+              <img
+                class="card__thumb"
+                src="https://i.imgur.com/7D7I6dI.png"
+                alt=""
               />
-              go gack
-            </div>
-            <div class="card__body">
-              <div class="half">
-                <div class="featured_text"></div>
-                <div class="image">
-                  <img src="../assets/images/boruto.jpeg" alt="" />
-                </div>
-              </div>
-              <div class="half">
-                <h1 class="mt-4">Boruto</h1>
-                <div class="reviews mb-3">
-                  <ul class="stars">
-                    <v-rating
-                      v-model="ratings"
-                      color="orange"
-                      dense
-                      size="18"
-                      half-increments
-                      background-color="orange lighten-3"
-                    ></v-rating>
-                  </ul>
-                  <span>(64 reviews)</span>
-                </div>
-                <p class="price">$210.00</p>
-                <div class="description">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-
-                <!--   <span class="stock"><i class="fa fa-pen"></i> In stock</span> -->
+              <div class="card__header-text">
+                <h3 class="card__title">Jessica Parker</h3>
+                <span class="card__tagline"
+                  >Lorem ipsum dolor sit amet consectetur xcnncnn</span
+                >
+              <!--   <span class="card__status">1 hour ago</span> -->
               </div>
             </div>
-            <div class="card__footer">
-              <div class="recommend">
-                <p>Publié par</p>
-                <h3>
-                  <v-avatar>
-                    <img
-                      src="https://cdn.vuetifyjs.com/images/john.jpg"
-                      alt="John"
-                    /> </v-avatar
-                  >Andrew Palmer
-                </h3>
-              </div>
-              <div class="action">
-                <button type="button">Contact</button>
-              </div>
-            </div>
+            <p class="card__description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Asperiores, blanditiis?
+            </p>
           </div>
-        </div>
-      </v-col>
-    </v-row>
-  </v-container>
+        </a>
+      </li>
+    </ul>
+  </div>
 </template>
 <script>
 export default {
@@ -85,273 +52,127 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import url("https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat:300,400,700,800|Open+Sans:300");
-
-.main {
-  width: 700px;
+<style>
+:root {
+  --surface-color: #fff;
+  --curve: 40;
 }
-@media only screen and (max-width: 600px) {
-  .main {
-    width: 90% !important;
-  }
-  .card {
-    .card__title {
-      display: flex;
-      align-items: center;
-      padding: 10px 30px !important;
-    }
 
-    .card__footer {
-      padding: 13px 14px !important;
-    }
-    .card__body {
-      padding: 0px !important;
-      flex-direction: column;
-      margin-bottom: 0 !important;
-      .description {
-        margin-bottom: 3px !important;
-        p {
-          line-height: 24px !important;
-          font-size: 14px !important;
-        }
-      }
-      .image {
-        padding-top: 0px !important;
-        display: flex;
-        justify-content: center;
-        img {
-          height: 167px !important;
-          width: 80%;
-        }
-      }
-      .half {
-        h1 {
-          font-size: 14px;
-          margin: 0px;
-        }
-        .reviews {
-          margin-bottom: 0 !important;
-        }
-        .price {
-          margin-bottom: 0px !important;
-        }
-      }
-    }
-  }
+* {
+  box-sizing: border-box;
 }
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  background-color: #fef8f8;
+}
+
+ul {
+  padding: 25px;
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
 .card {
-  box-shadow: 2px 2px 6px rgba(#000, 0.3);
-  transition: 200ms;
-  background: #fff;
+  position: relative;
+  margin-top: 5rem;
+  display: block;
+  height: 100%;
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+}
+li {
+  max-width: 480px;
+}
+.card__image {
+  width: 100%;
+  height: auto;
+}
 
-  .card__title {
-    display: flex;
-    align-items: center;
-    padding: 10px 30px;
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-radius: calc(var(--curve) * 1px);
+  background-color: var(--surface-color);
+  transform: translateY(100%);
+  transition: 0.2s ease-in-out;
+}
 
-    h3 {
-      flex: 0 1 200px;
-      text-align: right;
-      margin: 0;
-      color: #252525;
-      font-family: sans-serif;
-      font-weight: 600;
-      font-size: 20px;
-      text-transform: uppercase;
-    }
+.card:hover .card__overlay {
+  transform: translateY(0);
+}
 
-    .back {
-      font-size: 20px;
-      font-weight: 700;
-    }
-    .icon {
-      flex: 1 0 0px;
-      background: #115dd8;
-      color: #fff;
-      padding: 10px 10px;
-      transition: 200ms;
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: 0.2s ease-in-out;
+}
 
-      > a {
-        color: #fff;
-      }
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 1;
+}
 
-      &:hover {
-        background: #252525;
-      }
-    }
-  }
+.card__arc path {
+  fill: var(--surface-color);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}
 
-  .card__body {
-    padding: 0 20px;
-    display: flex;
-    flex-flow: row no-wrap;
-    margin-bottom: 25px;
+.card:hover .card__header {
+  transform: translateY(0);
+}
 
-    > .half {
-      box-sizing: border-box;
-      padding: 0 15px;
-      flex: 1 0 50%;
-    }
-    h1 {
-      color: #252525;
-      margin: 8px 0;
-      font-family: sans-serif;
-      font-weight: 600;
-      font-size: 20px;
-      text-transform: uppercase;
-    }
-    .featured_text {
-      h1 {
-        margin: 0;
-        padding: 0;
-        font-weight: 800;
-        font-family: "Montserrat", sans-serif;
-        font-size: 30px;
-        line-height: 50px;
-        color: #181e28;
-      }
+.card__thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
 
-      p {
-        margin: 0;
-        padding: 0;
+.card__title {
+  font-size: 1em;
+  margin: 0 0 0.3em;
+  color: #6a515e;
+}
 
-        &.sub {
-          font-family: "Montserrat", sans-serif;
-          font-size: 26px;
-          text-transform: uppercase;
-          color: #686e77;
-          font-weight: 300;
-          margin-bottom: 5px;
-        }
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";
+  font-size: 0.8em;
+  color: #d7bdca;
+}
 
-        &.price {
-          font-family: "Fjalla One", sans-serif;
-          color: #252525;
-          font-size: 26px;
-        }
-      }
-    }
+.card__status {
+  font-size: 0.8em;
+  color: #d7bdca;
+}
 
-    .image {
-      padding-top: 15px;
-      width: 100%;
-
-      img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-      }
-    }
-
-    .description {
-      margin-bottom: 25px;
-
-      p {
-        margin: 0;
-        font-family: "Open Sans", sans-serif;
-        font-weight: 300;
-        line-height: 27px;
-        font-size: 16px;
-        color: #555;
-      }
-    }
-
-    span.stock {
-      font-family: "Montserrat", sans-serif;
-      font-weight: 600;
-      color: #a1cc16;
-    }
-
-    .reviews {
-      .stars {
-        display: inline-block;
-        list-style: none;
-        padding: 0;
-
-        > li {
-          display: inline-block;
-
-          .fa {
-            color: #f7c01b;
-          }
-        }
-      }
-
-      > span {
-        font-family: "Open Sans", sans-serif;
-        font-size: 14px;
-        margin-left: 5px;
-        color: #555;
-      }
-    }
-  }
-
-  .card__footer {
-    padding: 30px 40px;
-    display: flex;
-    flex-flow: row no-wrap;
-    align-items: center;
-    position: relative;
-
-    &::before {
-      content: "";
-      position: absolute;
-      display: block;
-      top: 0;
-      left: 12px;
-      width: calc(100% - 40px);
-      height: 3px;
-      background: #115dd8;
-      background: linear-gradient(
-        to right,
-        #115dd8 0%,
-        #115dd8 20%,
-        #ddd 20%,
-        #ddd 100%
-      );
-    }
-
-    .recommend {
-      flex: 1 0 10px;
-
-      p {
-        margin: 0;
-        font-family: "Montserrat", sans-serif;
-        text-transform: uppercase;
-        font-weight: 600;
-        font-size: 14px;
-        color: #555;
-      }
-
-      h3 {
-        margin: 0;
-        font-size: 20px;
-        font-family: "Montserrat", sans-serif;
-        font-weight: 600;
-        text-transform: uppercase;
-        color: #115dd8;
-      }
-    }
-
-    .action {
-      button {
-        cursor: pointer;
-        border: 1px solid #115dd8;
-        padding: 14px 30px;
-        border-radius: 200px;
-        color: #fff;
-        background: #115dd8;
-        font-family: "Open Sans", sans-serif;
-        font-size: 16px;
-        transition: 200ms;
-
-        &:hover {
-          background: #fff;
-          color: #115dd8;
-        }
-      }
-    }
-  }
+.card__description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: #d7bdca;
+  font-family: "MockFlowFont";
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 </style>
