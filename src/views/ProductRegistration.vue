@@ -64,6 +64,7 @@
           </v-col>
           <v-col cols="12" sm="6">
             <v-file-input
+            v-model="photo"
               label="Photo du produit"
               outlined
               prepend-icon=""
@@ -96,6 +97,7 @@ export default {
     first: "",
     last: "",
     phone: "",
+    photo:'',
     valid: true,
   }),
 

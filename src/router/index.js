@@ -4,6 +4,7 @@ import redirect2 from "../middlewares/redirect2";
 import redirectEp from "../middlewares/redirectEpreuves";
 import indexRoute from "../middlewares/index";
 
+
 /* import auth from "../middlewares/auth";
 import redirect from "../middlewares/redirect"; */
 import HomeView from "../views/HomeView.vue";
@@ -48,11 +49,11 @@ const routes = [
     component: () => import("../components/Select.vue"),
     beforeEnter: redirectEp,
   },
-  {
+   {
     path: "/shop/:product/:id",
     name: "productDetail",
     component: () => import("../views/ProductInfo.vue"),
-  },
+  }, 
   {
     path: "/panier",
     name: "MyCart",
@@ -69,25 +70,26 @@ redirect2(to,from,next)
     } */
   },
 
+  
   {
-    name: "login2",
-    path: "/login2",
-    component: () => import("../views/Login2.vue"),
+    name: "accounts",
+    path: "/accountChoice",
+    component: () => import("../views/AccountChoice.vue"),
   },
   {
-    name: "create",
-    path: "/createAccount",
-    component: () => import("../views/CreateAccount.vue"),
+    name:"clientAccount",
+    path:"/clientAccount",
+    component:()=>import("../views/CreateAccount.vue")
   },
   {
-    name:'homePage',
-    path:'/homePage',
-    component:()=> import("../views/HomePage.vue")
+    name:"sellerAccount",
+    path:"/sellerAccount",
+    component:()=>import("../views/SellerAccount.vue")
   },
   {
-    name:'gal',
-    path:'/gal',
-    component:()=>import("../views/Gallery.vue")
+    name: "gal",
+    path: "/gal",
+    component: () => import("../views/Gallery.vue"),
   },
   {
     name: "productRegistration",

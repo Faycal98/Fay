@@ -1,22 +1,42 @@
 <template>
-  <div class="d">
-    <hello-world />
-    <gallery></gallery>
-  </div>
-
+  <v-container>
+    <v-row no-gutters class="flex justify-around">
+      <v-col cols="12" sm="1" lg="3" >
+        
+      </v-col>
+    
+      <v-col cols="12" sm="10" lg="5">
+     <div class="post-container ">
+      <home-card></home-card>
+     </div>
+      </v-col>
+      <v-col cols="12" sm="1" lg="3">
+        <v-card class="pa-2 sidebar"  outlined tile> One of three columns </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
-
 <script>
 
-  import HelloWorld from '../components/HelloWorld'
-import Gallery from '../components/Gallery.vue';
-  export default {
-    name: 'Home',
-
-    components: {
-      HelloWorld,
-      Gallery
-   
-    },
+import HomeCard from '../components/HomeCard.vue';
+export default{
+data() {
+  return {
+    
   }
+},
+components:{
+  HomeCard,
+
+}
+}
 </script>
+<style scoped>
+@media only screen and (max-width: 898px) {
+
+  .sidebar{
+    display: none;
+  }
+}
+
+</style>

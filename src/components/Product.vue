@@ -10,8 +10,8 @@
       <div class="like-container absolute">
         <font-awesome-icon
           icon="fa-solid fa-heart"
-          class="text-2xl text-gray-500"
-          :class="{ 'text-red-500': liked }"
+          class=" text-gray-500"
+          :class="{ 'text-red-500': liked ,'text-2xl':!isMobile}"
           @click="clicked"
           :beat="beatStatus"
         />
@@ -26,7 +26,7 @@
           v-model="rating"
           color="orange"
           dense
-          size="18"
+          :size="getSize($vuetify.breakpoint.width)"
           half-increments
           background-color="orange lighten-3"
         ></v-rating>
@@ -42,10 +42,10 @@
             params: { product: productProps.name, id: productProps.id },
           }"
         >
-          <div class="product-links font-sans bg-green-800 text-white">
+          <div class="product-links font-sans bg-blue-500 text-white">
             Acheter
             <font-awesome-icon
-              class="text-white text-2xl ml-1"
+              class="text-white ml-1"
               icon="fa-solid fa-shopping-cart"
             />
           </div>
@@ -71,6 +71,13 @@ export default {
     };
   },
   methods: {
+    getSize(value) {
+      if (value > 500) {
+        return 17;
+      } else {
+        return 11;
+      }
+    },
     currentDateTime() {
       return moment().startOf("hour").fromNow();
     },
@@ -84,6 +91,11 @@ export default {
       }
     },
   },
+  computed:{
+    isMobile(){
+      return this.$vuetify.breakpoint.width<1000
+    }
+  }
 };
 </script>
 <style scoped>
@@ -101,7 +113,7 @@ a {
   text-decoration: none;
 }
 .product-card {
-  width: 360px;
+  width: 320px;
   position: relative;
   box-shadow: 0 2px 7px #dfdfdf;
   border-radius: 6px;
@@ -150,7 +162,6 @@ a {
 .product-tumb {
   display: flex;
   align-items: center;
-
   justify-content: center;
   border-top-left-radius: 6px;
   background: #f0f0f0;
@@ -159,10 +170,9 @@ a {
 .product-tumb img {
   max-width: 100%;
   max-height: 100%;
-  height: 255px;
+  height: 200px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-
 }
 
 .product-details {
@@ -185,7 +195,7 @@ a {
 .product-details h4 a {
   font-weight: 500;
   display: block;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 22px;
   font-family: "Poppins", sans-serif;
@@ -246,39 +256,57 @@ a {
   color: #fbb72c;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1000px) {
+  .like-container[data-v-3cf4ef6f] {
+    width: 20px;
+    height: 40px;
+    padding: 17px;
+    bottom: -20px;
+    right: 10px;
+    height: 20px;
+  }
+
   .product-details {
-    padding: 16px 10px;
+    padding: 8px 7px;
+  }
+
+  .product-bottom-details {
+    padding-top: 12px;
+  }
+  .product-price {
+    font-size: 13px;
   }
 
   .product-card {
-    width: 314px;
-    
-    
+    width: 172px;
   }
   .product-links {
-    padding: 10px;
+    padding: 8px;
+    font-size: 12px;
+    margin-left: 5px;
   }
   .product-tumb img {
     max-width: 100%;
     max-height: 100%;
     height: auto;
+    height: 107px !important;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
   }
 
-  .product-tumb img {
-    max-width: 100%;
-    height: 200px;
-  }
   .product-name {
-    margin-top: 1.2rem;
-    margin-bottom: 15px !important;
+    margin-top: 0.6rem;
+    margin-bottom: 5px !important;
+    align-items: baseline;
   }
   .product-details h4 a {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 12px !important;
     line-height: 22px;
+  }
+
+  .badge {
+    font-size: 9px;
   }
 }
 </style>

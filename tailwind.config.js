@@ -9,6 +9,7 @@ module.exports = {
         stroke: "#98BAD7",
         gray: "#F7FBFC",
         white: "#ffff",
+        navBarColor:"rgba(6, 95, 70,1)"
       },
     },
   },

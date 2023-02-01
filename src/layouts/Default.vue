@@ -19,7 +19,7 @@ export default {
 <style>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.9s;
+  transition: opacity 0.5s;
 }
 .fade-enter,
 .fade-leave-to {

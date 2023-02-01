@@ -47,7 +47,7 @@
         </v-card>
         <p class="text-center tw-text-base">
           Pas de compte?
-          <router-link to="/createAccount">
+          <router-link to="/accountChoice">
             <span class="text-light-green font-semibold">Créer un compte</span>
           </router-link>
         </p>

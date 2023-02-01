@@ -1,7 +1,7 @@
 <template>
   <v-sheet>
     <v-tabs
-      color="rgba(6, 95, 70,1)"
+      color="#0284c7"
       v-model="tab"
       next-icon="mdi-arrow-right-bold-box-outline"
       prev-icon="mdi-arrow-left-bold-box-outline"
@@ -11,7 +11,7 @@
       <v-tab v-for="item in items" :key="item.id" @click="clicked(item.id)">
         <font-awesome-icon
           :icon="item.icon"
-          class="text-2xl mr-2 text-gray-500"
+          class="text-3xl mr-2 text-gray-500"
           :key="item.name"
         />
         {{ item.name }}

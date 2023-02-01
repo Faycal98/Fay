@@ -16,6 +16,7 @@
         <font-awesome-icon class="text-black mr-1" icon="fa-solid fa-sign-in" />
         Se connecter
       </li>
+     
       <li v-if="$store.state.isAuth">
         <font-awesome-icon class="text-black mr-1" icon="fa-solid fa-user" />
         Voir mon profile
@@ -23,6 +24,11 @@
       <li v-if="$store.state.isAuth">
         <font-awesome-icon icon="fa-solid fa-heart" class="text-black mr-1" />
         Mes favoris
+      </li>
+      
+      <li v-if="$store.state.isAuth">
+        <font-awesome-icon icon="fa-solid fa-heart" class="text-black mr-1" />
+       Achats
       </li>
       <li v-if="$store.state.isAuth" @click="logout">
         <font-awesome-icon
@@ -55,6 +61,17 @@ export default {
 };
 </script>
 <style scoped>
+.dd-menu:before {
+  content: "";
+  border-bottom: 10px solid #fff;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  position: absolute;
+  top: -10px;
+  right: 23px;
+  z-index: 10;
+}
+
 a {
   text-decoration: none;
   color: #000000;
